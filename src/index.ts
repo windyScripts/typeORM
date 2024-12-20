@@ -25,7 +25,10 @@ AppDataSource.initialize().then(async () => {
     photo.views = 1
     photo.isPublished = true
 
-    await AppDataSource.manager.save(photo);
+    //await AppDataSource.manager.save(photo);
+    const photoRepository = AppDataSource.getRepository(Photo);
+    await photoRepository.save(photo);
+
     console.log("Photo has been saved. Photo id is", photo.id)
 
 
